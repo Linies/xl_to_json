@@ -10,7 +10,7 @@ Future<void> build() async {
     var packageRoot = '${dirname(uri.toFilePath())}/..';
     startExport(packageRoot);
   } catch (e, stack) {
-    print('xltj -> {error: $e, stack: $stack}');
+    print('build -> {error: $e, stack: $stack}');
   }
 }
 
