@@ -1,13 +1,11 @@
 import 'dart:convert';
-import 'dart:io' show Platform, Directory, File;
+import 'dart:io' show Directory, File, Platform;
 
-import "package:path/path.dart" show dirname;
 import 'package:xl_to_json/xltj/xl_reader.dart';
 
 Future<void> build() async {
   try {
-    var uri = Platform.script;
-    var packageRoot = '${dirname(uri.toFilePath())}/..';
+    var packageRoot = Directory.current.path;
     startExport(packageRoot);
   } catch (e, stack) {
     print('build -> {error: $e, stack: $stack}');
@@ -34,7 +32,7 @@ Future<void> startExport(String path) async {
         source[key] = value;
       }
     });
-    var dir = Directory('$path/${target.output}');
+    var dir = Directory('$path${Platform.pathSeparator}${target.output}');
     dir.createSync(recursive: true);
 
     // 遍历输出文件
@@ -43,7 +41,8 @@ Future<void> startExport(String path) async {
       for (var i = 0; i < idxList.length; i++) {
         json[idxList[i] ?? ""] = list[i];
       }
-      var file = File('$path/${target.output}/$filename.json');
+      var file = File(
+          '$path${Platform.pathSeparator}${target.output}${Platform.pathSeparator}$filename.json');
       await file.writeAsString(jsonEncode(json));
       file.create();
     });

@@ -8,8 +8,10 @@ List<TargetModel> loadSpec(String path) {
   var yamlMap = loadYaml('${path}/xlmap.yaml');
   return yamlMap['targets']
           .map<TargetModel>((element) => TargetModel(
-                input: '$path/${element['input']}',
-                output: element['output'],
+                input:
+                    '$path${Platform.pathSeparator}${Uri.file(element['input'], windows: Platform.isWindows).toFilePath()}',
+                output: Uri.file(element['output'], windows: Platform.isWindows)
+                    .toFilePath(),
                 index: element['index'],
                 collects: (element['collects'] ?? [])
                     .map<String>((value) => value.toString())

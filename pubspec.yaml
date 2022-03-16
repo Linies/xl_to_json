@@ -1,6 +1,6 @@
 name: xl_to_json
 description: excel to json.
-version: 1.0.0
+version: 1.0.1
 author: liniec<liniec50@gmail.com>
 homepage: https://github.com/Linies/xl_to_json
 
@@ -11,7 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  path: ^1.8.0
   excel: ^2.0.0-null-safety-3
   yaml: ^3.1.0
 

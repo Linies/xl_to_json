@@ -1,3 +1,4 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+## 1.0.1
+* 路径根据系统进行格式化
