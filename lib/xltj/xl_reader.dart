@@ -5,7 +5,7 @@ import 'package:xl_to_json/xltj/model.dart';
 import 'package:xl_to_json/utils/yaml_reader.dart';
 
 List<TargetModel> loadSpec(String path) {
-  var yamlMap = loadYaml('${path}/xlmap.yaml');
+  var yamlMap = loadYaml('${path}${Platform.pathSeparator}xlmap.yaml');
   return yamlMap['targets']
           .map<TargetModel>((element) => TargetModel(
                 input:
