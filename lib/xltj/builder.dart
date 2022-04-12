@@ -41,8 +41,9 @@ Future<void> startExport(String path) async {
       for (var i = 0; i < idxList.length; i++) {
         json[idxList[i] ?? ""] = list[i];
       }
+      var regFilename = filename.split('<').last.split('>').first;
       var file = File(
-          '$path${Platform.pathSeparator}${target.output}${Platform.pathSeparator}$filename.json');
+          '$path${Platform.pathSeparator}${target.output}${Platform.pathSeparator}$regFilename.json');
       await file.writeAsString(jsonEncode(json));
       file.create();
     });
