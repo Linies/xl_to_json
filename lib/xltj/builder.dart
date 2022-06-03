@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io' show Directory, File, Platform;
 
+import 'package:xl_to_json/utils/json_format.dart';
 import 'package:xl_to_json/xltj/xl_reader.dart';
 
 Future<void> build() async {
@@ -44,7 +45,7 @@ Future<void> startExport(String path) async {
       var regFilename = filename.split('<').last.split('>').first;
       var file = File(
           '$path${Platform.pathSeparator}${target.output}${Platform.pathSeparator}$regFilename.json');
-      await file.writeAsString(jsonEncode(json));
+      await file.writeAsString(convert(json, 0));
       file.create();
     });
   }
