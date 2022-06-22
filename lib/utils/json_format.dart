@@ -50,7 +50,7 @@ String convert(dynamic object, int deep, {bool isObject = false}) {
     }
   } else if (object is String) {
     //为字符串时，需要添加双引号并返回当前内容
-    buffer.write("\"$object\"");
+    buffer.write("\"${object.replaceAll('\n', '\\n')}\"");
   } else if (object is num || object is bool) {
     //为数字或者布尔值时，返回当前内容
     buffer.write(object);
