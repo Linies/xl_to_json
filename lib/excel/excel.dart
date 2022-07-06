@@ -1,4 +1,49 @@
-part of excel;
+library excel;
+
+import 'dart:convert';
+import 'dart:math';
+import 'dart:typed_data';
+import 'package:archive/archive.dart';
+import 'package:equatable/equatable.dart';
+import 'package:xml/xml.dart';
+import 'web_helper/client_save_excel.dart'
+    if (dart.library.html) 'web_helper/web_save_excel_browser.dart' as helper;
+
+/// sharedStrigns
+part 'sharedStrings/shared_strings.dart';
+
+/// Utilities
+part 'utilities/span.dart';
+
+part 'utilities/fast_list.dart';
+
+part 'utilities/utility.dart';
+
+part 'utilities/constants.dart';
+
+part 'utilities/enum.dart';
+
+/// Save
+part 'save/save_file.dart';
+
+part 'save/self_correct_span.dart';
+
+part 'parser/parse.dart';
+
+/// Sheet
+part 'sheet/sheet.dart';
+
+part 'sheet/font_family.dart';
+
+part 'sheet/data_model.dart';
+
+part 'sheet/formula.dart';
+
+part 'sheet/cell_index.dart';
+
+part 'sheet/cell_style.dart';
+
+part 'sheet/font_style.dart';
 
 Excel _newExcel(Archive archive) {
   // Lookup at file format

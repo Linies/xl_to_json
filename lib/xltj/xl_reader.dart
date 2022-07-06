@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:excel/excel.dart';
+
+import 'package:xl_to_json/excel/excel.dart';
 import 'package:xl_to_json/xltj/model.dart';
 import 'package:xl_to_json/utils/yaml_reader.dart';
 
